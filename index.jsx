@@ -5,20 +5,20 @@ export const refreshFrequency = 5000 // ms
 const USE_BASE_TEN = 10
 
 const theme = {
-  borderSize: 10,
-  thickness: '2px',
-  green: '#97c475',
-  green_threshold: 80,
-  yellow: '#e5c07b',
-  yellow_threshold: 55,
-  orange: '#d09a6a',
-  orange_threshold: 30,
-  red: '#e06c75',
-  screenSize: window.innerWidth
+  borderSize:       0,
+  thickness:       '1px',
+  green:           '#fff',
+  green_threshold:  99,
+  yellow:          '#97c475',
+  yellow_threshold: 79,
+  orange:          '#e5c07b',
+  orange_threshold: 19,
+  red:             '#e06c75',
+  screenSize:       window.innerWidth
 }
 
 const computeUsedBattery = usedPercentage => {
-  const paddingPercent = (100 - usedPercentage)/2
+  const paddingPercent = (100 - usedPercentage)
   return theme.screenSize * (paddingPercent / 100)
 }
 const computeBatteryColor = level => {
@@ -47,9 +47,9 @@ const getBarStyle = (batteryPercentage) => {
   const borderSize = theme.borderSize + computeUsedBattery(batteryPercentage)
 
   return {
-    top: 25,
     right: borderSize,
-    left: borderSize,
+    bottom: 23,
+    left: 0,
     position: 'fixed',
     background,
     overflow: 'hidden',
